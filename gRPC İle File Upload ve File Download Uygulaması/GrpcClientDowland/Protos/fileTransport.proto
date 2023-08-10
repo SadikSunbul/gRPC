@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcFileTransportServer";
+
+package file;
+
+import "google/protobuf/empty.proto";
+
+service FileService{
+
+	rpc FileDowland(FileInfo) returns (stream BytesContent);
+	rpc FileUpload(stream BytesContent) returns (google.protobuf.Empty);
+}
+
+
+message FileInfo{
+	string fileName=1;
+	string FileExtension=2;
+}
+
+message BytesContent{
+	int64 filesize=1; //dosya boyutu 
+	bytes buffer=2;  //her parcanýn ne oldugunu belirticek
+	int32 readedByte=3;  //Nekadarlýk verý okudum nekadarýný sana gonderdým 
+	FileInfo info=4;
+}
+
+
+
+
