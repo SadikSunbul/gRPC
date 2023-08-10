@@ -57,8 +57,6 @@ HelloReply result = await greeterClient.SayHelloAsync(new HelloRequest()
 //Console.WriteLine((await request.ResponseAsync).Message); //gelecek verıyı boyle yakalıyoruz
 
 #endregion
-
-
 #region Bi directional streaming
 var messageClient = new Message.MessageClient(chanel);
 
