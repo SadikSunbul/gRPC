@@ -1,0 +1,26 @@
+syntax = "proto3"; //hangi versiyon gibi 
+
+option csharp_namespace = "GrpcMessageServer"; 
+//c# ortamında serveri geliştirceğimiz için hangi name spce altında
+// olusturulcagını buradakı etıket ustunden alınır
+
+
+package message; //bu pakete bir isim vermiş
+
+service Message {
+    // rpc SendMesage (MesageRequest) returns (MessageRespons);
+  // rpc SendMesage (MesageRequest) returns (stream MessageRespons);
+    //burada stream yazarsak basına respons ıcın bu kadar dır server stream
+   // rpc SendMesage (stream MesageRequest) returns (MessageRespons);
+   rpc SendMesage (stream MesageRequest) returns (stream MessageRespons);
+}
+
+message MesageRequest {
+  string name = 1;
+  string message=2;
+}//kım hangı mesajı gonderıyor 
+
+
+message MessageRespons {  
+  string message = 1;
+}

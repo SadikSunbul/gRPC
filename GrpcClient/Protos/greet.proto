@@ -1,0 +1,28 @@
+syntax = "proto3"; //hangi versiyon gibi 
+
+option csharp_namespace = "GrpcServer"; 
+//c# ortamýnda serveri geliþtirceðimiz için hangi name spce altýnda
+// olusturulcagýný buradaký etýket ustunden alýnýr
+
+
+package greet; //bu pakete bir isim vermiþ
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply);
+  // SayHello adýnda bir metot olucak client  bu metot ustunden býr ýstekte bulunabilir
+  // clieant bu metodu cagýrdýgýnda gonderecegý tur HelloRequest olucak gerý donulcek turu HelloReply dur
+
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {  
+// message olarak gorulen herbýr tanýmalma clieant ile server arasýnda kullanýlacak turu belirtir
+  string message = 1;
+}
