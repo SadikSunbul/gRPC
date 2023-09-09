@@ -3,4 +3,4 @@
 - [x] gRPC Nedir?
 - [x] gRPC Protos
 - [x] gRPC Server
-- [x] RPC Küçük örnek
+- [x] gRPC Küçük örnek
